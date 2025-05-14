@@ -1,7 +1,7 @@
 import { TokenKind } from '../../lexer/types';
-import { Statement } from '../ast';
 
-import { ParserContext, check, advance } from '../context';
+import type { Statement } from '../ast';
+import { advance, check, type ParserContext } from '../context';
 
 import { parseIfStatement } from './if';
 import { parseWhileStatement } from './while';

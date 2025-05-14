@@ -5,7 +5,7 @@ import { Lexer } from './lexer';
 import { parser } from './parser/parser';
 import { CodeGenerator } from './codegen';
 import { CompilerError } from './error/types';
-import { createSourceFile, getLineAndColumn, Token } from './lexer/types';
+import { type Token, createSourceFile, getLineAndColumn } from './lexer/types';
 import { createParserContext } from './parser/context';
 
 export function compile(source: string, filePath: string): string {

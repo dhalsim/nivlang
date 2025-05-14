@@ -5,7 +5,7 @@
  * Each node type extends the base Node interface and includes type information and source location.
  */
 
-import { Location } from '../lexer/types';
+import type { Location } from '../lexer/types';
 
 /* Base interface for all AST nodes */
 export interface Node {

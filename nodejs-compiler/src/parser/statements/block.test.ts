@@ -1,9 +1,10 @@
 import { expect, test, describe } from '@jest/globals';
 
-import { consume, createParserContext } from '../../../parser/context';
-import { parseBlock } from '../../../parser/statements/block';
-import { getTokens } from '../../../compiler';
-import { TokenKind } from '../../../lexer/types';
+import { getTokens } from '../../compiler';
+import { TokenKind } from '../../lexer/types';
+
+import { consume, createParserContext } from '../context';
+import { parseBlock } from './block';
 
 describe('parseBlock', () => {
   test('should parse a block with a return statement', () => {

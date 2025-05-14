@@ -1,8 +1,9 @@
 import { TokenKind, Primitives } from '../../lexer/types';
-import { Identifier, Literal } from '../ast';
-import { checkAny, ParserContext, peek } from '../context';
-import { CompilerError, createError } from '../../error';
-import { check, createLocation, previous, advance, consume } from '../context';
+import type { Identifier, Literal } from '../ast';
+import { checkAny, type ParserContext, peek } from '../context';
+import { CompilerError } from '../../error';
+import { check, createLocation, previous, consume } from '../context';
+import { parseLiteral } from './literal';
 
 export const parseTerm = (context: ParserContext, message?: string): Literal | Identifier => {
   if (checkAny(context)(...Primitives)) {
@@ -19,66 +20,6 @@ export const parseTerm = (context: ParserContext, message?: string): Literal | I
     file: context.filePath,
     start: previousToken.start,
     end: previousToken.end,
-  });
-};
-
-export const parseLiteral = (context: ParserContext, message?: string): Literal => {
-  if (check(context)(TokenKind.Number)) {
-    const token = advance(context);
-
-    return {
-      type: 'Literal',
-      value: Number(token.lexeme),
-      location: createLocation(context),
-    };
-  }
-
-  if (check(context)(TokenKind.String)) {
-    const token = advance(context);
-
-    return {
-      type: 'Literal',
-      value: token.lexeme.slice(1, -1), // Remove quotes
-      location: createLocation(context),
-    };
-  }
-
-  if (check(context)(TokenKind.True)) {
-    advance(context);
-
-    return {
-      type: 'Literal',
-      value: true,
-      location: createLocation(context),
-    };
-  }
-
-  if (check(context)(TokenKind.False)) {
-    advance(context);
-
-    return {
-      type: 'Literal',
-      value: false,
-      location: createLocation(context),
-    };
-  }
-
-  if (check(context)(TokenKind.Nil)) {
-    advance(context);
-
-    return {
-      type: 'Literal',
-      value: null,
-      location: createLocation(context),
-    };
-  }
-
-  const token = peek(context);
-
-  throw createError(message ?? 'Expect literal.', {
-    file: context.filePath,
-    start: token.start,
-    end: token.end,
   });
 };
 

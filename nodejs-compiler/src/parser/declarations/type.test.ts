@@ -1,10 +1,12 @@
 import { expect, test, describe } from '@jest/globals';
 
-import { consume, createParserContext } from '../../../parser/context';
-import { getTokens } from '../../../compiler';
-import { typeDeclaration } from '../../../parser/declarations/type';
-import { TokenKind } from '../../../lexer/types';
-import { FunctionTypeDeclaration } from '../../../parser/ast';
+import { getTokens } from '../../compiler';
+import { TokenKind } from '../../lexer/types';
+
+import { consume, createParserContext } from '../context';
+import type { FunctionTypeDeclaration } from '../ast';
+
+import { typeDeclaration } from './type';
 
 describe('parseTypeDeclaration', () => {
   test('should parse a type declaration', () => {

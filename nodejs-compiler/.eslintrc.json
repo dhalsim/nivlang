@@ -15,7 +15,8 @@
   },
   "plugins": [
     "@typescript-eslint",
-    "prettier"
+    "prettier",
+    "import"
   ],
   "rules": {
     "padding-line-between-statements": [
@@ -37,6 +38,35 @@
       }
     ],
     "curly": ["error", "all"],
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "@typescript-eslint/consistent-type-imports": ["error", {
+      "prefer": "type-imports",
+      "disallowTypeAnnotations": false,
+      "fixStyle": "separate-type-imports"
+    }],
+    "import/order": ["error", {
+      "groups": [
+        "builtin",
+        "external",
+        "internal",
+        ["parent", "sibling"],
+        "index",
+        "object",
+        "type"
+      ],
+      "pathGroups": [
+        {
+          "pattern": "vscode-languageserver/**",
+          "group": "external",
+          "position": "before"
+        }
+      ],
+      "pathGroupsExcludedImportTypes": ["builtin"],
+      "newlines-between": "always-and-inside-groups",
+      "alphabetize": {
+        "order": "asc",
+        "caseInsensitive": true
+      }
+    }]
   }
 } 

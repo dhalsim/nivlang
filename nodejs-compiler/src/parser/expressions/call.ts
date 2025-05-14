@@ -1,8 +1,11 @@
-import { TokenKind } from '../../lexer/types';
-import { Expression } from '../ast';
 import { CompilerError } from '../../error';
-import { check, previous, ParserContext, advance } from '../context';
+import { TokenKind } from '../../lexer/types';
+
+import { check, previous, advance, type ParserContext } from '../context';
+
 import { parseExpression } from './expression';
+
+import type { Expression } from '../ast';
 
 export const parseCall = (context: ParserContext, callee: Expression): Expression => {
   const args: Expression[] = [];

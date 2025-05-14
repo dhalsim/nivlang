@@ -1,11 +1,6 @@
-import {
-  SourceFile,
-  Token,
-  TokenKind,
-  createToken,
-  TemplateToken,
-  createTemplateToken,
-} from './types';
+import { TokenKind, createToken, createTemplateToken } from './types';
+
+import type { SourceFile, Token, TemplateToken } from './types';
 
 export class Lexer {
   private start = 0;

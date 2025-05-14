@@ -6,7 +6,7 @@
  * equivalent JavaScript code with proper formatting and indentation.
  */
 
-import {
+import type {
   Program,
   Declaration,
   FunctionDeclaration,

@@ -1,24 +1,25 @@
 #!/usr/bin/env node
-
 import {
   createConnection,
   TextDocuments,
-  Diagnostic,
   DiagnosticSeverity,
-  InitializeParams,
   DidChangeConfigurationNotification,
-  CompletionItem,
   CompletionItemKind,
   TextDocumentSyncKind,
+} from 'vscode-languageserver/node';
+import type {
+  Diagnostic,
+  InitializeParams,
+  CompletionItem,
   InitializeResult,
 } from 'vscode-languageserver/node';
 
 import { TextDocument } from 'vscode-languageserver-textdocument';
 
 import { getTokens } from './compiler';
+import { CompilerError } from './error/types';
 import { createParserContext } from './parser/context';
 import { parser } from './parser/parser';
-import { CompilerError } from './error/types';
 
 // Create a connection for the server using stdio transport
 const connection = createConnection(process.stdin, process.stdout);

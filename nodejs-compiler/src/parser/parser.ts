@@ -1,10 +1,10 @@
 import { TokenKind } from '../lexer/types';
 import { createError } from '../error';
-import { Declaration, Program } from './ast';
+import type { Declaration, Program } from './ast';
 
 import { functionDeclaration } from './declarations/function';
 import { typeDeclaration } from './declarations/type';
-import { check, createLocation, isAtEnd, ParserContext, previous, advance } from './context';
+import { check, createLocation, isAtEnd, type ParserContext, previous, advance } from './context';
 
 export const parser = (context: ParserContext): Program => {
   const declarations: Declaration[] = [];

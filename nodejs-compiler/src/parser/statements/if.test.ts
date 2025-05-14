@@ -1,10 +1,10 @@
 import { expect, test, describe } from '@jest/globals';
 
-import { consume, createLocation, createParserContext } from '../../../parser/context';
-import { parseIfStatement } from '../../../parser/statements/if';
+import { consume, createLocation, createParserContext } from '../context';
+import { parseIfStatement } from './if';
 
-import { getTokens } from '../../../compiler';
-import { TokenKind } from '../../../lexer/types';
+import { getTokens } from '../../compiler';
+import { TokenKind } from '../../lexer/types';
 
 describe('parseIfStatement', () => {
   test('should parse an if statement', () => {

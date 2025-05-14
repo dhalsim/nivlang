@@ -9,7 +9,7 @@
  * - Function types (e.g., { name: string, age: int }: int)
  */
 
-import {
+import type {
   FunctionType,
   FunctionTypeDeclaration,
   InterfaceType,
@@ -19,7 +19,7 @@ import {
 import { TokenKind } from '../../lexer/types';
 import {
   consume,
-  ParserContext,
+  type ParserContext,
   check,
   createLocation,
   peek,

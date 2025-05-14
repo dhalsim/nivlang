@@ -10,8 +10,10 @@
  */
 
 import { TokenKind } from '../../lexer/types';
-import { Expression } from '../ast';
-import { ParserContext, check } from '../context';
+
+import type { Expression } from '../ast';
+import { check, type ParserContext } from '../context';
+
 import { parseBinary } from './binary';
 import { parseCall } from './call';
 import { parseMember } from './member';

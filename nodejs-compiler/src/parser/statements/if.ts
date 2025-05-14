@@ -1,9 +1,18 @@
-import { BlockStatement, Expression, Identifier, Literal, Statement } from '../ast';
+import type { BlockStatement, Expression, Identifier, Literal, Statement } from '../ast';
 import { TokenKind } from '../../lexer/types';
-import { check, checkAny, createLocation, ParserContext, peek, advance, consume } from '../context';
+import {
+  check,
+  checkAny,
+  createLocation,
+  type ParserContext,
+  peek,
+  advance,
+  consume,
+} from '../context';
 import { createError } from '../../error';
 
-import { parseIdentifier, parseLiteral } from '../expressions/term';
+import { parseIdentifier } from '../expressions/term';
+import { parseLiteral } from '../expressions/literal';
 import { parseBlock } from './block';
 
 export const parseIfStatement = (context: ParserContext): Statement => {

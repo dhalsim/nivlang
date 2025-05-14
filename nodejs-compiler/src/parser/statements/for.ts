@@ -1,8 +1,9 @@
-import { consume, ParserContext, peek } from '../context';
-import { createLocation } from '../context';
 import { TokenKind } from '../../lexer/types';
+
+import { createLocation, consume, type ParserContext, peek } from '../context';
 import { parseExpression } from '../expressions/expression';
-import { Statement } from '../ast';
+import type { Statement } from '../ast';
+
 import { parseBlock } from './block';
 import { parseAssignment } from './assignment';
 

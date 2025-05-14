@@ -1,7 +1,7 @@
-import { AssignmentStatement } from '../ast';
+import type { AssignmentStatement } from '../ast';
 import { TokenKind } from '../../lexer/types';
 
-import { ParserContext, createLocation, consume } from '../context';
+import { createLocation, consume, type ParserContext } from '../context';
 import { parseExpression } from '../expressions/expression';
 
 import { parseIdentifier } from '../expressions/term';

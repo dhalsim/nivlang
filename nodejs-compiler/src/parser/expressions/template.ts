@@ -1,6 +1,6 @@
-import { TemplateToken } from '../../lexer/types';
-import { Expression, TemplateLiteral } from '../ast';
-import { ParserContext, advance } from '../context';
+import type { TemplateToken } from '../../lexer/types';
+import type { Expression, TemplateLiteral } from '../ast';
+import { advance, type ParserContext } from '../context';
 
 export const parseTemplateLiteral = (context: ParserContext): TemplateLiteral => {
   const token = advance(context) as TemplateToken;

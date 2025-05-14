@@ -1,6 +1,6 @@
 import { expect, test, describe } from '@jest/globals';
 
-import { compile } from '../compiler';
+import { compile } from './compiler';
 
 describe('Compiler', () => {
   test('compiles simple function', () => {

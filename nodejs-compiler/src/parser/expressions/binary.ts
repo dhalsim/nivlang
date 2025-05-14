@@ -1,6 +1,7 @@
 import { TokenKind } from '../../lexer/types';
-import { Expression } from '../ast';
-import { ParserContext, advance, checkAny, createLocation } from '../context';
+import type { Expression } from '../ast';
+import type { ParserContext } from '../context';
+import { advance, checkAny, createLocation } from '../context';
 import { parsePrimary } from './primary';
 import { createError } from '../../error';
 

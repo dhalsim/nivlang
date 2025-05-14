@@ -1,7 +1,7 @@
 import { TokenKind, Primitives } from '../../lexer/types';
-import { Expression } from '../ast';
+import type { Expression } from '../ast';
 import { CompilerError } from '../../error';
-import { check, previous, ParserContext, advance, checkAny } from '../context';
+import { check, previous, type ParserContext, advance, checkAny } from '../context';
 import { parseTerm } from './term';
 import { parseCall } from './call';
 import { parseMember } from './member';

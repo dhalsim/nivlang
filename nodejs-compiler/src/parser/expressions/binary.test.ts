@@ -1,15 +1,17 @@
-import { expect, test, describe } from '@jest/globals';
+import { describe, test, expect } from '@jest/globals';
 
-import { createParserContext } from '../../../parser/context';
-import { getTokens } from '../../../compiler';
+import { getTokens } from '../../compiler';
+import { createParserContext } from '../context';
 
-import { parseExpression } from '../../../parser/expressions/expression';
+import { parseExpression } from './expression';
+import { parseBinary } from './binary';
+import { parseLiteral } from './literal';
 
-describe('parseExpression', () => {
+describe('Binary Expression', () => {
   test('should parse a simple binary expression', () => {
     const source = '1 + 2';
     const context = createParserContext(getTokens(source, 'test.nl'), 'test.nl');
-    const result = parseExpression(context);
+    const result = parseBinary(context, parseLiteral(context), parseExpression);
 
     expect(result).toEqual({
       type: 'BinaryExpression',
@@ -135,37 +137,5 @@ describe('parseExpression', () => {
     expect(() => parseExpression(context)).toThrow(
       'You must use parentheses when combining more than 2 terms (e.g. "1 + (2 * 3)")'
     );
-  });
-
-  test('should parse a simple literal', () => {
-    const source = '42';
-    const context = createParserContext(getTokens(source, 'test.nl'), 'test.nl');
-    const result = parseExpression(context);
-
-    expect(result).toEqual({
-      type: 'Literal',
-      value: 42,
-      location: {
-        start: 0,
-        end: 2,
-        file: 'test.nl',
-      },
-    });
-  });
-
-  test('should parse a string literal', () => {
-    const source = '"hello"';
-    const context = createParserContext(getTokens(source, 'test.nl'), 'test.nl');
-    const result = parseExpression(context);
-
-    expect(result).toEqual({
-      type: 'Literal',
-      value: 'hello',
-      location: {
-        start: 0,
-        end: 7,
-        file: 'test.nl',
-      },
-    });
   });
 });
