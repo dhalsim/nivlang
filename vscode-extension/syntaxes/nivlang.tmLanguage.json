@@ -1,0 +1,60 @@
+{
+    "name": "Niv Language",
+    "scopeName": "source.nivlang",
+    "patterns": [
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#function-calls"
+        },
+        {
+            "include": "#types"
+        },
+        {
+            "include": "#comments"
+        }
+    ],
+    "repository": {
+        "keywords": {
+            "patterns": [{
+                "name": "keyword.control.nivlang",
+                "match": "\\b(if|from|import|test|type|func|return)\\b"
+            }]
+        },
+        "strings": {
+            "name": "string.quoted.backtick.nivlang",
+            "begin": "`",
+            "end": "`",
+            "patterns": [{
+                "name": "entity.name.function.nivlang",
+                "match": "\\{[^}]*\\}"
+            }]
+        },
+        "types": {
+            "patterns": [{
+                "name": "entity.name.type.nivlang",
+                "match": "\\b(int|double|string|error|symbol)\\b"
+            },
+            {
+                "name": "entity.name.type.nivlang",
+                "match": "\\?[A-Za-z]+"
+            }]
+        },
+        "function-calls": {
+            "patterns": [{
+                "name": "entity.name.function.nivlang",
+                "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\("
+            }]
+        },
+        "comments": {
+            "patterns": [{
+                "name": "comment.line.double-slash.nivlang",
+                "match": "//.*$"
+            }]
+        }
+    }
+} 

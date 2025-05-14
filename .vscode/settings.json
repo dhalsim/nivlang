@@ -1,0 +1,3 @@
+{
+  "nivlang.languageServerPath": "./nodejs-compiler/dist/lsp.js"
+}

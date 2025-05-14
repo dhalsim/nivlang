@@ -1,0 +1,67 @@
+{
+  "name": "nivlang",
+  "displayName": "Niv Language",
+  "description": "Syntax highlighting for Niv Language",
+  "version": "0.0.1",
+  "publisher": "nivlang",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dhalsim/nivlang"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onLanguage:nivlang"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "nivlang",
+        "aliases": [
+          "Niv Language",
+          "nivlang"
+        ],
+        "extensions": [
+          ".nl"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "nivlang",
+        "scopeName": "source.nivlang",
+        "path": "./syntaxes/nivlang.tmLanguage.json"
+      }
+    ],
+    "configuration": {
+      "title": "Niv Language",
+      "properties": {
+        "nivlang.languageServerPath": {
+          "type": "string",
+          "default": "./nodejs-compiler/dist/lsp.js",
+          "description": "Path to the Niv language server executable"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^8.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.18.126",
+    "@types/vscode": "^1.60.0",
+    "typescript": "^4.5.4"
+  }
+}
